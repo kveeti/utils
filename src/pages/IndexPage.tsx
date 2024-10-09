@@ -5,6 +5,7 @@ import {
 	GasStation,
 	Icon as IconType,
 	ReportMoney,
+	IceCream
 } from "tabler-icons-react";
 
 export function IndexPage() {
@@ -27,6 +28,10 @@ export function IndexPage() {
 
 						<PageLink href="/calculators/ppi" icon={ArrowsDiagonalMinimize2}>
 							<span className="text-lg">Ppi</span>
+						</PageLink>
+
+						<PageLink href="/calculators/holidays" icon={IceCream}>
+							<span className="text-lg">Holidays</span>
 						</PageLink>
 					</div>
 				</div>

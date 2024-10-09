@@ -23,6 +23,12 @@ const PpiCalculatorPage = React.lazy(() =>
 	}))
 );
 
+const HolidayCalculator = React.lazy(() =>
+	import("./pages/holidayCalculator/holidayCalculator.tsx").then((module) => ({
+		default: module.HolidayCalculator,
+	}))
+);
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<Suspense>
@@ -32,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 					<Route path="/calculators/salary" element={<SalaryCalculatorPage />} />
 					<Route path="/calculators/fuel" element={<FuelCalculatorPage />} />
 					<Route path="/calculators/ppi" element={<PpiCalculatorPage />} />
+					<Route path="/calculators/holidays" element={<HolidayCalculator />} />
 				</Routes>
 			</BrowserRouter>
 		</Suspense>
