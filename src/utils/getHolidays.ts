@@ -1,9 +1,24 @@
 import Holidays from "date-holidays";
 
-import { Holiday } from "../pages/salaryCalculator/salaryTypes";
+import type { Holiday } from "../pages/salaryCalculator/salaryTypes";
 
-export const getHolidays = (year: Date): Holiday[] =>
-	new Holidays("fi").getHolidays(year).map((h) => ({
-		...h,
-		date: new Date(h.date),
-	}));
+const hd = new Holidays("fi");
+
+export const getHolidays = (year: Date): Holiday[] => {
+	const holidays = hd.getHolidays(year);
+
+	const mappedHolidays = [];
+
+	for (let i = 0; i < holidays.length; i++) {
+		const holiday = holidays[i];
+
+		if (holiday.name === "Uudenvuodenpäivä") continue;
+
+		mappedHolidays.push({
+			date: new Date(holiday.date),
+			name: holiday.name,
+		});
+	}
+
+	return mappedHolidays;
+};

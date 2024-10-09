@@ -1,5 +1,4 @@
 import { format } from "date-fns";
-import type { HolidaysTypes } from "date-holidays";
 
 export type DayWithDetails = {
 	date: Date;
@@ -42,10 +41,10 @@ export const formatMonth = (date: Date) => format(date, monthFormat);
 export type MonthsWithDetails = Map<string, MonthWithDetails>;
 export type MonthsWithDetailsArray = [string, MonthWithDetails][];
 
-export type Holiday = Omit<HolidaysTypes.Holiday, "date"> & {
+export type Holiday = {
 	date: Date;
-};
-
+	name: string;
+}
 export type Cut = {
 	amount: number | undefined;
 	type: "%" | "€";
