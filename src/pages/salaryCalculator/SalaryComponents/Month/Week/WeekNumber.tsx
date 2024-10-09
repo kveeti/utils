@@ -1,5 +1,5 @@
-import getWeek from "date-fns/getWeek";
 
+import { getWeek } from "date-fns";
 import { useSalaryContext } from "../../../SalaryContext/SalaryContextProvider";
 import { useSelectedDaysContext } from "../../../SelectedDays/SelectedDaysContext";
 
@@ -26,8 +26,8 @@ export const WeekNumber = ({ week }: Props) => {
 				toggleDaysSelected(
 					e.altKey
 						? daysWithDetailsOfWeek
-								.filter((day) => day.isWorkday)
-								.map((d) => d.formattedDate)
+							.filter((day) => day.isWorkday)
+							.map((d) => d.formattedDate)
 						: daysWithDetailsOfWeek.map((d) => d.formattedDate)
 				)
 			}
@@ -36,8 +36,8 @@ export const WeekNumber = ({ week }: Props) => {
 					setDaysSelected(
 						e.altKey
 							? daysWithDetailsOfWeek
-									.filter((d) => d.isWorkday)
-									.map((d) => d.formattedDate)
+								.filter((d) => d.isWorkday)
+								.map((d) => d.formattedDate)
 							: daysWithDetailsOfWeek.map((d) => d.formattedDate),
 						true
 					);
@@ -45,8 +45,8 @@ export const WeekNumber = ({ week }: Props) => {
 					setDaysSelected(
 						e.altKey
 							? daysWithDetailsOfWeek
-									.filter((d) => d.isWorkday)
-									.map((d) => d.formattedDate)
+								.filter((d) => d.isWorkday)
+								.map((d) => d.formattedDate)
 							: daysWithDetailsOfWeek.map((d) => d.formattedDate),
 						false
 					);

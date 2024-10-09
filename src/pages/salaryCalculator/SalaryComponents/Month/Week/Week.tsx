@@ -1,7 +1,5 @@
-import eachDayOfInterval from "date-fns/eachDayOfInterval";
-import endOfWeek from "date-fns/endOfWeek";
-import startOfWeek from "date-fns/startOfWeek";
 
+import { eachDayOfInterval, endOfWeek, startOfWeek } from "date-fns";
 import { Day } from "./Day/Day";
 import { WeekNumber } from "./WeekNumber";
 

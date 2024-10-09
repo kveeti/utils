@@ -1,10 +1,3 @@
-import eachMonthOfInterval from "date-fns/eachMonthOfInterval";
-import endOfWeek from "date-fns/endOfWeek";
-import endOfYear from "date-fns/endOfYear";
-import format from "date-fns/format";
-import isValid from "date-fns/isValid";
-import startOfWeek from "date-fns/startOfWeek";
-import startOfYear from "date-fns/startOfYear";
 import type { ReactNode } from "react";
 
 import { createCtx } from "../../../utils/createContext";
@@ -12,6 +5,7 @@ import { useDaysWithDetails } from "./useDaysWithDetails";
 import { useHolidays } from "./useHolidays";
 import { useMonthsWithDetails } from "./useMonthsWithDetails";
 import { useSalaryForm } from "./useSalaryForm";
+import { eachMonthOfInterval, endOfWeek, endOfYear, format, isValid, startOfWeek, startOfYear } from "date-fns";
 
 const [useContextInner, Context] = createCtx<SalaryContextType>();
 

@@ -1,7 +1,4 @@
-import format from "date-fns/format";
-import isSameMonth from "date-fns/isSameMonth";
-import isToday from "date-fns/isToday";
-
+import { format, isSameMonth, isToday } from "date-fns";
 import { classNames } from "../../../../../../utils/classNames";
 import { useSalaryContext } from "../../../../SalaryContext/SalaryContextProvider";
 import { useSelectedDaysContext } from "../../../../SelectedDays/SelectedDaysContext";
@@ -32,7 +29,7 @@ export const Day = ({ day, month }: Props) => {
 				isToday(day) && "rounded-md border-2 border-blue-500",
 				isDimmed && "opacity-30",
 				isSelected &&
-					"border-transparent bg-transparent outline-none outline-1 outline-offset-0 outline-blue-500"
+				"border-transparent bg-transparent outline-none outline-1 outline-offset-0 outline-blue-500"
 			)}
 			onClick={() => toggleDaysSelected([dayWithDetails.formattedDate])}
 			onMouseOverCapture={(e) => {

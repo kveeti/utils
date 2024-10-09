@@ -1,9 +1,5 @@
-import eachMonthOfInterval from "date-fns/eachMonthOfInterval";
-import endOfYear from "date-fns/endOfYear";
-import isSameMonth from "date-fns/isSameMonth";
-import isSameYear from "date-fns/isSameYear";
-import startOfYear from "date-fns/startOfYear";
 
+import { eachMonthOfInterval, endOfYear, isSameMonth, isSameYear, startOfYear } from "date-fns";
 import { formatNumber } from "../../../utils/formatNumber";
 import { DayWithDetails, MonthWithDetails, formatMonth } from "../salaryTypes";
 

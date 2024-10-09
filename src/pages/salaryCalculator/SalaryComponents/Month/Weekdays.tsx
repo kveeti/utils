@@ -31,8 +31,8 @@ export const Weekdays = ({ monthWithDetails }: Props) => {
 						toggleDaysSelected(
 							e.altKey
 								? daysWithDetailsOfMonth
-										.filter((day) => day.isWorkday)
-										.map((d) => d.formattedDate)
+									.filter((day) => day.isWorkday)
+									.map((d) => d.formattedDate)
 								: daysWithDetailsOfMonth.map((d) => d.formattedDate)
 						);
 					}}

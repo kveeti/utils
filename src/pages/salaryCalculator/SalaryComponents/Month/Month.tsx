@@ -1,7 +1,5 @@
-import eachWeekOfInterval from "date-fns/eachWeekOfInterval";
-import endOfMonth from "date-fns/endOfMonth";
-import startOfMonth from "date-fns/startOfMonth";
 
+import { eachWeekOfInterval, endOfMonth, startOfMonth } from "date-fns";
 import { useSalaryContext } from "../../SalaryContext/SalaryContextProvider";
 import { formatMonth } from "../../salaryTypes";
 import { MonthInfo } from "./MonthInfo";

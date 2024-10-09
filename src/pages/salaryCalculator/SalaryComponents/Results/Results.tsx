@@ -1,5 +1,5 @@
-import format from "date-fns/format";
 
+import { format } from "date-fns";
 import { formatCurrency, formatNumber } from "../../../../utils/formatNumber";
 import { useSalaryContext } from "../../SalaryContext/SalaryContextProvider";
 
