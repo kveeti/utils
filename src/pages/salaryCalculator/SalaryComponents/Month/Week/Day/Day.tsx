@@ -12,7 +12,8 @@ type Props = {
 export const Day = ({ day, month }: Props) => {
 	const { getDayWithDetails } = useSalaryContext();
 
-	const { isSelectedDay, setDaysSelected, toggleDaysSelected } = useSelectedDaysContext();
+	const { isSelectedDay, setDaysSelected, toggleDaysSelected } =
+		useSelectedDaysContext();
 
 	const dayWithDetails = getDayWithDetails(formatDay(day));
 	if (!dayWithDetails) return null;
@@ -29,7 +30,7 @@ export const Day = ({ day, month }: Props) => {
 				isToday(day) && "rounded-md border-2 border-blue-500",
 				isDimmed && "opacity-30",
 				isSelected &&
-				"border-transparent bg-transparent outline-none outline-1 outline-offset-0 outline-blue-500"
+				"border-transparent bg-transparent outline-none outline-1 outline-offset-0 outline-blue-500",
 			)}
 			onClick={() => toggleDaysSelected([dayWithDetails.formattedDate])}
 			onMouseOverCapture={(e) => {
@@ -44,13 +45,16 @@ export const Day = ({ day, month }: Props) => {
 				<time
 					dateTime={dayWithDetails.formattedDate}
 					className={classNames(
-						(dayWithDetails?.isWeekend || isHoliday) && "text-red-500",
-						"w-max rounded-md border-[1px] border-primary-500 bg-primary-600 px-1 text-sm sm:text-base"
+						(dayWithDetails?.isWeekend || isHoliday) &&
+						"text-red-500",
+						"w-max rounded-md border-[1px] border-primary-500 bg-primary-600 px-1 text-sm sm:text-base",
 					)}
 				>
 					{format(day, "dd")}
 				</time>
-				<span className="text-center text-sm">{dayWithDetails.formattedWorkhours}h</span>
+				<span className="text-center text-sm">
+					{dayWithDetails.formattedWorkhours}h
+				</span>
 			</div>
 		</div>
 	);

@@ -3,9 +3,9 @@ const locale = "fi-FI";
 export const formatNumber = (
 	number: number | null | undefined,
 	emptyAsZero = true,
-	spaces = true
+	spaces = true,
 ) => {
-	if (!number || isNaN(number)) {
+	if (!number || Number.isNaN(number)) {
 		return emptyAsZero ? "0" : "--";
 	}
 
@@ -15,12 +15,14 @@ export const formatNumber = (
 };
 
 export const formatNumberNoSpaces = (number: number | null | undefined) =>
-	!number || isNaN(number) ? "--" : Intl.NumberFormat(locale).format(number).replace(/\s/g, "");
+	!number || Number.isNaN(number)
+		? "--"
+		: Intl.NumberFormat(locale).format(number).replace(/\s/g, "");
 
 export const formatCurrency = (number: number) =>
-	isNaN(number)
+	Number.isNaN(number)
 		? "--"
 		: Intl.NumberFormat(locale, {
-				style: "currency",
-				currency: "EUR",
-		  }).format(number);
+			style: "currency",
+			currency: "EUR",
+		}).format(number);

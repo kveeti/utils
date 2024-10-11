@@ -19,21 +19,24 @@ export const Weekdays = ({ monthWithDetails }: Props) => {
 					key={`${monthWithDetails.formattedDate}-${weekDay}-${index}`}
 					className={classNames(
 						"flex items-center justify-center rounded-md border-[1px] border-primary-700 bg-primary-800 p-2",
-						index === 0 && "border-primary-600 bg-primary-700"
+						index === 0 && "border-primary-600 bg-primary-700",
 					)}
 					onClick={(e) => {
 						if (index !== 0) return;
 
-						const daysWithDetailsOfMonth = getDaysWithDetailsOfMonth(
-							monthWithDetails.formattedDate
-						);
+						const daysWithDetailsOfMonth =
+							getDaysWithDetailsOfMonth(
+								monthWithDetails.formattedDate,
+							);
 
 						toggleDaysSelected(
 							e.altKey
 								? daysWithDetailsOfMonth
 									.filter((day) => day.isWorkday)
 									.map((d) => d.formattedDate)
-								: daysWithDetailsOfMonth.map((d) => d.formattedDate)
+								: daysWithDetailsOfMonth.map(
+									(d) => d.formattedDate,
+								),
 						);
 					}}
 				>

@@ -1,20 +1,22 @@
 import { useState } from "react";
 
-import { DayWithDetails, DaysWithDetails } from "../salaryTypes";
+import type { DayWithDetails, DaysWithDetails } from "../salaryTypes";
 
 type Props = {
 	daysWithDetails: DaysWithDetails;
 };
 
 export const useSelectedDays = ({ daysWithDetails }: Props) => {
-	const [selectedDays, setSelectedDays] = useState<Map<string, DayWithDetails>>(new Map());
+	const [selectedDays, setSelectedDays] = useState<
+		Map<string, DayWithDetails>
+	>(new Map());
 
 	const toggleDaysSelected = (formattedDays: string[]) => {
 		setSelectedDays((prev) => {
 			const newSelectedDays = new Map(prev);
 
 			const everyDayIsSelected = formattedDays.every((formattedDay) =>
-				newSelectedDays.has(formattedDay)
+				newSelectedDays.has(formattedDay),
 			);
 
 			formattedDays.forEach((formattedDay) => {
@@ -33,19 +35,24 @@ export const useSelectedDays = ({ daysWithDetails }: Props) => {
 		});
 	};
 
-	const toggleDaysWithDetailsSelected = (daysWithDetails: DayWithDetails[]) => {
+	const toggleDaysWithDetailsSelected = (
+		daysWithDetails: DayWithDetails[],
+	) => {
 		setSelectedDays((prev) => {
 			const newSelectedDays = new Map(prev);
 
 			const everyDayIsSelected = daysWithDetails.every((dayWithDetails) =>
-				newSelectedDays.has(dayWithDetails.formattedDate)
+				newSelectedDays.has(dayWithDetails.formattedDate),
 			);
 
 			daysWithDetails.forEach((dayWithDetails) => {
 				if (everyDayIsSelected) {
 					newSelectedDays.delete(dayWithDetails.formattedDate);
 				} else {
-					newSelectedDays.set(dayWithDetails.formattedDate, dayWithDetails);
+					newSelectedDays.set(
+						dayWithDetails.formattedDate,
+						dayWithDetails,
+					);
 				}
 			});
 
@@ -77,7 +84,10 @@ export const useSelectedDays = ({ daysWithDetails }: Props) => {
 		});
 	};
 
-	const setDaysWithDetailsSelected = (days: DayWithDetails[], value: boolean) => {
+	const setDaysWithDetailsSelected = (
+		days: DayWithDetails[],
+		value: boolean,
+	) => {
 		setSelectedDays((prev) => {
 			const newSelectedDays = new Map(prev);
 

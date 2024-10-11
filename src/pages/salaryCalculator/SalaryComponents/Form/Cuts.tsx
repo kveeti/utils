@@ -47,15 +47,20 @@ export function Cuts() {
 							<input
 								type="number"
 								className="w-full rounded-bl-md rounded-tl-md bg-gray-600 p-2 outline-none"
-								{...form.register(`cuts.${index}.amount` as const, {
-									valueAsNumber: true,
-								})}
+								{...form.register(
+									`cuts.${index}.amount` as const,
+									{
+										valueAsNumber: true,
+									},
+								)}
 							/>
 
 							<div className="relative">
 								<select
 									className="appearance-none rounded-br-md rounded-tr-md border-l-2 border-l-gray-500 bg-gray-600 py-2 pl-3 pr-8 outline-none"
-									{...form.register(`cuts.${index}.type` as const)}
+									{...form.register(
+										`cuts.${index}.type` as const,
+									)}
 								>
 									<option value="%">%</option>
 									<option value="€">€</option>

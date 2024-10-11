@@ -44,7 +44,7 @@ export type MonthsWithDetailsArray = [string, MonthWithDetails][];
 export type Holiday = {
 	date: Date;
 	name: string;
-}
+};
 export type Cut = {
 	amount: number | undefined;
 	type: "%" | "€";

@@ -10,7 +10,8 @@ export const getHolidays = (year: Date): Holiday[] => {
 	const mappedHolidays = [];
 
 	for (let i = 0; i < holidays.length; i++) {
-		const holiday = holidays[i];
+		// biome-ignore lint/style/noNonNullAssertion: iterating to length
+		const holiday = holidays[i]!;
 
 		if (holiday.name === "Uudenvuodenpäivä") continue;
 

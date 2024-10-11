@@ -5,7 +5,15 @@ import { useDaysWithDetails } from "./useDaysWithDetails";
 import { useHolidays } from "./useHolidays";
 import { useMonthsWithDetails } from "./useMonthsWithDetails";
 import { useSalaryForm } from "./useSalaryForm";
-import { eachMonthOfInterval, endOfWeek, endOfYear, format, isValid, startOfWeek, startOfYear } from "date-fns";
+import {
+	eachMonthOfInterval,
+	endOfWeek,
+	endOfYear,
+	format,
+	isValid,
+	startOfWeek,
+	startOfYear,
+} from "date-fns";
 
 const [useContextInner, Context] = createCtx<SalaryContextType>();
 
@@ -31,7 +39,9 @@ function useSalaryContextValue() {
 	const atWorkOnSundays = form.watch("atWorkOnSundays");
 	const atWorkOnMidweekHolidays = form.watch("atWorkOnMidweekHolidays");
 
-	const selectedMonthAsDate = isValid(new Date(month)) ? new Date(month) : new Date();
+	const selectedMonthAsDate = isValid(new Date(month))
+		? new Date(month)
+		: new Date();
 
 	const selectedMonthFormatted = format(selectedMonthAsDate, "MMMM");
 	const selectedYearFormatted = format(selectedMonthAsDate, "yyyy");
@@ -60,29 +70,31 @@ function useSalaryContextValue() {
 	});
 
 	const selectedYearsWorkdays = [...daysWithDetails].filter(
-		([_, day]) => day.isInSelectedYear && day.isWorkday
+		([_, day]) => day.isInSelectedYear && day.isWorkday,
 	);
 
 	const selectedMonthsWorkdays = [...daysWithDetails].filter(
-		([_, day]) => day.isInSelectedMonth && day.isWorkday
+		([_, day]) => day.isInSelectedMonth && day.isWorkday,
 	);
 
 	const selectedMonthsSalary = selectedMonthsWorkdays.reduce(
 		(acc, [_, day]) => acc + day.salary,
-		0
+		0,
 	);
 
 	const selectedYearsSalary = selectedYearsWorkdays.reduce(
 		(acc, [_, day]) => acc + day.salary,
-		0
+		0,
 	);
 
 	const selectedYearsTotalWorkhours = selectedYearsWorkdays.reduce(
 		(acc, [_, day]) => acc + day.workhours,
-		0
+		0,
 	);
 
-	const monthsWithDetailsArr = [...monthsWithDetails].map(([_, month]) => month);
+	const monthsWithDetailsArr = [...monthsWithDetails].map(
+		([_, month]) => month,
+	);
 
 	const highestWorkdaysMonth = monthsWithDetailsArr.reduce((acc, month) => {
 		if (!acc || month.workdays > acc?.workdays) {

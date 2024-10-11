@@ -149,7 +149,8 @@ function Cal({
 			days: eachDayOfInterval({ start, end }).map((day) => {
 				const isHoliday = !!holidays.get(format(day, "yyyy-MM-dd"));
 				const dayOfWeekI = getDay(day);
-				const dayOfWeek = weekdays[dayOfWeekI];
+				// biome-ignore lint/style/noNonNullAssertion: getDay returns 0-6
+				const dayOfWeek = weekdays[dayOfWeekI]!;
 
 				return {
 					date: day,
@@ -222,7 +223,8 @@ function Cal({
 					};
 
 					let length = end - start + 1;
-					let startColumn = normalizedWeekday(days[start]);
+					// biome-ignore lint/style/noNonNullAssertion: safe
+					let startColumn = normalizedWeekday(days[start]!);
 					let startRow = Math.ceil(start / 7);
 
 					const spanElements = [];

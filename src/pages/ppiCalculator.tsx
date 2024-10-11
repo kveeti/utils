@@ -19,13 +19,15 @@ export function PpiCalculatorPage() {
 	const screenHeight = form.watch("screenHeight");
 	const inches = form.watch("inches");
 
-	const ppi = Math.sqrt(Math.pow(screenWidth, 2) + Math.pow(screenHeight, 2)) / inches;
+	const ppi = Math.sqrt(screenWidth ** 2 + screenHeight ** 2) / inches;
 	const ppcm = ppi / 2.54;
 	const totalPixels = screenWidth * screenHeight;
 
 	return (
 		<main className="mx-auto w-full max-w-[400px] p-3 pt-[5vh] sm:pt-[10vh]">
-			<h1 className="pb-4 text-3xl font-medium">Pixels per inch calculator</h1>
+			<h1 className="pb-4 text-3xl font-medium">
+				Pixels per inch calculator
+			</h1>
 
 			<div className="flex flex-col gap-3">
 				<div className="flex w-full flex-col gap-5 rounded-md border-[1px] border-primary-700 bg-primary-800 p-3">
@@ -33,14 +35,18 @@ export function PpiCalculatorPage() {
 						label="Screen width"
 						type="number"
 						step={"any"}
-						{...form.register("screenWidth", { valueAsNumber: true })}
+						{...form.register("screenWidth", {
+							valueAsNumber: true,
+						})}
 					/>
 
 					<Input
 						label="Screen height"
 						type="number"
 						step={"any"}
-						{...form.register("screenHeight", { valueAsNumber: true })}
+						{...form.register("screenHeight", {
+							valueAsNumber: true,
+						})}
 					/>
 
 					<Input

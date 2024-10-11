@@ -1,7 +1,20 @@
-
-import { eachDayOfInterval, endOfWeek, endOfYear, getWeek, isSameDay, isSameMonth, isSameYear, isSaturday, isSunday, isToday, isWeekend, startOfWeek, startOfYear } from "date-fns";
+import {
+	eachDayOfInterval,
+	endOfWeek,
+	endOfYear,
+	getWeek,
+	isSameDay,
+	isSameMonth,
+	isSameYear,
+	isSaturday,
+	isSunday,
+	isToday,
+	isWeekend,
+	startOfWeek,
+	startOfYear,
+} from "date-fns";
 import { formatNumber } from "../../../utils/formatNumber";
-import { DayWithDetails, Holiday, formatDay } from "../salaryTypes";
+import { type DayWithDetails, type Holiday, formatDay } from "../salaryTypes";
 
 type Props = {
 	selectedMonth: Date;
@@ -29,7 +42,9 @@ export const getDaysWithDetails = ({
 
 	return new Map([
 		...(days.map((day) => {
-			const holiday = holidays.find((holiday) => isSameDay(holiday.date, day));
+			const holiday = holidays.find((holiday) =>
+				isSameDay(holiday.date, day),
+			);
 
 			const isDayToday = isToday(day);
 			const isDayWeekend = isWeekend(day);
@@ -40,7 +55,10 @@ export const getDaysWithDetails = ({
 			const isDaySaturday = isDayWeekend && isSaturday(day);
 			const isDaySunday = isDayWeekend && isSunday(day);
 
-			const week = getWeek(day, { weekStartsOn: 1, firstWeekContainsDate: 4 });
+			const week = getWeek(day, {
+				weekStartsOn: 1,
+				firstWeekContainsDate: 4,
+			});
 			const workhours =
 				!isDayInSelectedYear ||
 					(isDaySaturday && !atWorkOnSaturdays) ||

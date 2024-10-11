@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 
 import { createCtx } from "../../../utils/createContext";
 
@@ -26,7 +26,9 @@ function useSelectedDaysContextValue() {
 	function toggleDaysSelected(days: string[]) {
 		const daysToToggle = days.filter((day) => selectedDays.includes(day));
 		if (daysToToggle.length > 0) {
-			setSelectedDays(selectedDays.filter((day) => !daysToToggle.includes(day)));
+			setSelectedDays(
+				selectedDays.filter((day) => !daysToToggle.includes(day)),
+			);
 		} else {
 			setSelectedDays([...selectedDays, ...days]);
 		}
@@ -34,7 +36,9 @@ function useSelectedDaysContextValue() {
 
 	function setDaysSelected(days: string[], selected: boolean) {
 		if (selected) {
-			const daysToSelect = days.filter((day) => !selectedDays.includes(day));
+			const daysToSelect = days.filter(
+				(day) => !selectedDays.includes(day),
+			);
 
 			setSelectedDays([...selectedDays, ...daysToSelect]);
 		} else {

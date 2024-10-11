@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, useId } from "react";
+import { type ComponentProps, forwardRef, useId } from "react";
 
 type Props = ComponentProps<"input"> & {
 	label?: string;
@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
 				/>
 			</div>
 		);
-	}
+	},
 );
 
 Input.displayName = "Input";

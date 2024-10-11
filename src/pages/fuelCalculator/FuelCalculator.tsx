@@ -39,7 +39,9 @@ export function FuelCalculatorPage() {
 						label="(L/100 km) Average fuel consumption"
 						type="number"
 						step={"any"}
-						{...form.register("fuelConsumption", { valueAsNumber: true })}
+						{...form.register("fuelConsumption", {
+							valueAsNumber: true,
+						})}
 					/>
 
 					<Input
@@ -84,12 +86,18 @@ export function FuelCalculatorPage() {
 							<div>
 								<div className="flex justify-between">
 									<span>Divided cost</span>
-									<span>{formatCurrency(costDividedAmongPayers)}</span>
+									<span>
+										{formatCurrency(costDividedAmongPayers)}
+									</span>
 								</div>
 
 								<div className="flex justify-between">
 									<span>Divided cost * 2</span>
-									<span>{formatCurrency(costDividedAmongPayersTimesTwo)}</span>
+									<span>
+										{formatCurrency(
+											costDividedAmongPayersTimesTwo,
+										)}
+									</span>
 								</div>
 							</div>
 						)}

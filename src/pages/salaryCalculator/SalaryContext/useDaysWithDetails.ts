@@ -1,4 +1,4 @@
-import { Holiday } from "../salaryTypes";
+import type { Holiday } from "../salaryTypes";
 import { getDaysWithDetails } from "../salaryUtils/getDaysWithDetails";
 
 type Props = {
@@ -30,17 +30,18 @@ export const useDaysWithDetails = ({
 		hourlyPay,
 	});
 
-	const getDayWithDetails = (formattedDay: string) => daysWithDetails.get(formattedDay);
+	const getDayWithDetails = (formattedDay: string) =>
+		daysWithDetails.get(formattedDay);
 
 	const getDaysWithDetailsOfMonth = (formattedMonth: string) => {
 		return [...daysWithDetails.values()].filter((dayWithDetails) =>
-			dayWithDetails.formattedDate.startsWith(formattedMonth)
+			dayWithDetails.formattedDate.startsWith(formattedMonth),
 		);
 	};
 
 	const getDaysWithDetailsOfWeek = (week: number) => {
 		return [...daysWithDetails.values()].filter(
-			(dayWithDetails) => dayWithDetails.week === week
+			(dayWithDetails) => dayWithDetails.week === week,
 		);
 	};
 

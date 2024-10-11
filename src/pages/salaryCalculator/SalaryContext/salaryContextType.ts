@@ -1,4 +1,4 @@
-import {
+import type {
 	DayWithDetails,
 	DaysWithDetails,
 	DaysWithDetailsArray,
@@ -18,7 +18,10 @@ export type SalaryContextType = {
 	toggleDaysWithDetailsSelected: (daysWithDetails: DayWithDetails[]) => void;
 	isDaySelected: (formattedDay: string) => boolean;
 	setDaysSelected: (formattedDays: string[], value: boolean) => void;
-	setDaysWithDetailsSelected: (daysWithDetails: DayWithDetails[], value: boolean) => void;
+	setDaysWithDetailsSelected: (
+		daysWithDetails: DayWithDetails[],
+		value: boolean,
+	) => void;
 
 	selectedDays: Map<string, DayWithDetails>;
 
@@ -27,7 +30,9 @@ export type SalaryContextType = {
 	getDayWithDetails: (formattedDay: string) => DayWithDetails | undefined;
 	getDaysWithDetailsOfMonth: (formattedMonth: string) => DayWithDetails[];
 	getDaysWithDetailsOfWeek: (week: number) => DayWithDetails[];
-	getMonthWithDetails: (formattedMonth: string) => MonthWithDetails | undefined;
+	getMonthWithDetails: (
+		formattedMonth: string,
+	) => MonthWithDetails | undefined;
 
 	inputs: {
 		month: string;

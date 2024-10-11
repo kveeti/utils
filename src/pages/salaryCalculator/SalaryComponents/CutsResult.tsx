@@ -1,27 +1,33 @@
 import { formatNumber } from "../../../utils/formatNumber";
 import { useSalaryContext } from "../SalaryContext/SalaryContextProvider";
-import { Cut } from "../salaryTypes";
+import type { Cut } from "../salaryTypes";
 
 export function CutsResult() {
 	const { form, selectedMonthsSalary } = useSalaryContext();
 
 	const cuts = form.watch("cuts");
 
-	const calculatedCuts = cuts.reduce((acc, cut, currI) => {
-		const currentSalary = currI === 0 ? selectedMonthsSalary : acc[currI - 1].salaryLeft;
+	const calculatedCuts = cuts.reduce(
+		(acc, cut, currI) => {
+			const currentSalary =
+				currI === 0 ? selectedMonthsSalary : acc[currI - 1].salaryLeft;
 
-		const cutOfSalary =
-			cut.type === "%" ? currentSalary * ((cut.amount ?? 0) / 100) : cut.amount ?? 0;
-		const salaryLeft = currentSalary - cutOfSalary;
+			const cutOfSalary =
+				cut.type === "%"
+					? currentSalary * ((cut.amount ?? 0) / 100)
+					: (cut.amount ?? 0);
+			const salaryLeft = currentSalary - cutOfSalary;
 
-		acc.push({
-			cutOfSalary,
-			salaryLeft,
-			cut,
-		});
+			acc.push({
+				cutOfSalary,
+				salaryLeft,
+				cut,
+			});
 
-		return acc;
-	}, [] as { cutOfSalary: number; salaryLeft: number; cut: Cut }[]);
+			return acc;
+		},
+		[] as { cutOfSalary: number; salaryLeft: number; cut: Cut }[],
+	);
 
 	return (
 		<div className="rounded-md border-[1px] border-primary-700 bg-primary-800 p-3">
@@ -34,7 +40,7 @@ export function CutsResult() {
 							{formatNumber(
 								cut.cut.amount,
 								cut.cut.type === "€",
-								cut.cut.type === "€"
+								cut.cut.type === "€",
 							)}{" "}
 							{cut.cut.type}
 						</span>

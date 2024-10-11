@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import {
 	ArrowsDiagonalMinimize2,
 	GasStation,
-	Icon as IconType,
+	type Icon as IconType,
 	ReportMoney,
-	IceCream
+	IceCream,
 } from "tabler-icons-react";
 
 export function IndexPage() {
@@ -15,7 +15,9 @@ export function IndexPage() {
 				<h1 className="text-4xl font-bold sm:text-5xl">Utils</h1>
 
 				<div className="flex flex-col gap-3 rounded-md border-[1px] border-primary-700 p-3">
-					<h1 className="text-2xl font-medium sm:text-3xl">Calculators</h1>
+					<h1 className="text-2xl font-medium sm:text-3xl">
+						Calculators
+					</h1>
 
 					<div className="flex flex-col gap-3">
 						<PageLink href="/calculators/salary" icon={ReportMoney}>
@@ -26,7 +28,10 @@ export function IndexPage() {
 							<span className="text-lg">Fuel</span>
 						</PageLink>
 
-						<PageLink href="/calculators/ppi" icon={ArrowsDiagonalMinimize2}>
+						<PageLink
+							href="/calculators/ppi"
+							icon={ArrowsDiagonalMinimize2}
+						>
 							<span className="text-lg">Ppi</span>
 						</PageLink>
 
@@ -40,7 +45,11 @@ export function IndexPage() {
 	);
 }
 
-function PageLink(props: { href: string; icon: IconType; children: ReactNode }) {
+function PageLink(props: {
+	href: string;
+	icon: IconType;
+	children: ReactNode;
+}) {
 	const Icon = props.icon;
 
 	return (

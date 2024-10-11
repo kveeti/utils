@@ -1,4 +1,4 @@
-import { DaysWithDetails } from "../salaryTypes";
+import type { DaysWithDetails } from "../salaryTypes";
 import { getMonthsWithDetails } from "../salaryUtils/getMonthsWithDetails";
 
 type Props = {
@@ -7,14 +7,19 @@ type Props = {
 	daysWithDetails: DaysWithDetails;
 };
 
-export const useMonthsWithDetails = ({ daysWithDetails, hourlyPay, selectedMonth }: Props) => {
+export const useMonthsWithDetails = ({
+	daysWithDetails,
+	hourlyPay,
+	selectedMonth,
+}: Props) => {
 	const monthsWithDetails = getMonthsWithDetails({
 		selectedMonth,
 		daysWithDetails,
 		hourlyPay,
 	});
 
-	const getMonthWithDetails = (formattedMonth: string) => monthsWithDetails.get(formattedMonth);
+	const getMonthWithDetails = (formattedMonth: string) =>
+		monthsWithDetails.get(formattedMonth);
 
 	return { getMonthWithDetails, monthsWithDetails };
 };

@@ -4,4 +4,5 @@ type Props = {
 	selectedMonthAsDate: Date;
 };
 
-export const useHolidays = ({ selectedMonthAsDate }: Props) => getHolidays(selectedMonthAsDate);
+export const useHolidays = ({ selectedMonthAsDate }: Props) =>
+	getHolidays(selectedMonthAsDate);

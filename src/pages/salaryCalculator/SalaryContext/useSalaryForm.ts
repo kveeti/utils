@@ -1,6 +1,6 @@
 import { useFieldArray, useForm } from "react-hook-form";
 
-import { Cut, formatMonth } from "../salaryTypes";
+import { type Cut, formatMonth } from "../salaryTypes";
 
 export const useSalaryForm = () => {
 	const form = useForm({
@@ -20,7 +20,12 @@ export const useSalaryForm = () => {
 		control: form.control,
 	});
 
-	return { ...form, addCut: fieldArr.append, removeCut: fieldArr.remove, cuts: fieldArr.fields };
+	return {
+		...form,
+		addCut: fieldArr.append,
+		removeCut: fieldArr.remove,
+		cuts: fieldArr.fields,
+	};
 };
 
 export type SalaryFromType = ReturnType<typeof useSalaryForm>;

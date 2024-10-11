@@ -6,7 +6,8 @@ export const createCtx = <ContextType>() => {
 	const useCtx = () => {
 		const c = useContext(ctx);
 
-		if (c === undefined) throw new Error("useCtx must be inside a Provider with a value");
+		if (c === undefined)
+			throw new Error("useCtx must be inside a Provider with a value");
 
 		return c;
 	};

@@ -4,7 +4,10 @@ import { Form } from "./SalaryComponents/Form/Form";
 import { Month } from "./SalaryComponents/Month/Month";
 import { Results } from "./SalaryComponents/Results/Results";
 import { SelectedDays } from "./SalaryComponents/SelectedDays/SelectedDays";
-import { SalaryContextProvider, useSalaryContext } from "./SalaryContext/SalaryContextProvider";
+import {
+	SalaryContextProvider,
+	useSalaryContext,
+} from "./SalaryContext/SalaryContextProvider";
 import { SelectedDaysContextProvider } from "./SelectedDays/SelectedDaysContext";
 
 function SalaryCalculatorPageInner() {
